@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛主题大赛骑乘-每日大赛骑乘主题_骑乘主题大赛每日看点</title>
+<meta name="description" content="每日大赛主题大赛骑乘首页：围绕每日大赛的骑乘主题，汇集主题看点、骑乘专题内容与每日更新节奏，提供清晰的浏览入口与主题浏览路径。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1a2b'/%3E%3Cpath d='M14 42c8-2 12-8 16-16 4 8 8 14 20 16' fill='none' stroke='%23ffb84d' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='47' cy='20' r='5' fill='%23ff6a3d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0f1a2b;
+  --ink-soft:#1d2c42;
+  --paper:#f6f2ea;
+  --card:#ffffff;
+  --line:#e2d9c9;
+  --accent:#ff6a3d;
+  --amber:#ffb84d;
+  --teal:#2f8f86;
+  --text:#22303f;
+  --muted:#6a7686;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* header */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,26,43,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,184,77,.25);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:12px 0;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;color:#fff}
+.brand-mark{width:38px;height:38px;flex:none}
+.brand-text{font-size:17px;font-weight:700;letter-spacing:.5px}
+nav ul{display:flex;list-style:none;gap:6px;flex-wrap:wrap}
+nav a{
+  display:inline-block;padding:6px 12px;border-radius:999px;
+  color:#d8e2ee;font-size:14px;transition:.2s;
+}
+nav a:hover,nav a:focus-visible{background:rgba(255,184,77,.16);color:var(--amber)}
+
+/* hero */
+.hero{
+  background:
+    radial-gradient(900px 380px at 85% -10%,rgba(255,106,61,.22),transparent 70%),
+    linear-gradient(160deg,#0f1a2b 0%,#17263c 60%,#1d2c42 100%);
+  color:#fff;
+  padding:56px 0 60px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:2px;color:var(--amber);
+  border:1px solid rgba(255,184,77,.45);
+  border-radius:999px;padding:4px 14px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber)}
+h1{
+  font-size:clamp(26px,4.4vw,44px);
+  line-height:1.28;font-weight:800;letter-spacing:.5px;
+}
+h1 .hl{color:var(--amber)}
+.hero p.lead{
+  margin-top:16px;color:#c9d5e3;font-size:16px;max-width:44em;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:10px;font-size:15px;font-weight:600;
+  transition:.2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#ff8258}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#e8eef6}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+.btn[data-download-placeholder]{
+  background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);
+  color:#e8eef6;pointer-events:none;
+}
+.hero-badge{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:16px;padding:22px;
+}
+.hero-badge h2{font-size:14px;color:var(--amber);letter-spacing:1px;font-weight:600;margin-bottom:12px}
+.hero-badge ul{list-style:none;display:grid;gap:10px}
+.hero-badge li{display:flex;gap:10px;font-size:14px;color:#cfdae7}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal);margin-top:9px;flex:none}
+
+/* section base */
+section{padding:56px 0}
+.sec-head{max-width:52em;margin-bottom:28px}
+.sec-kicker{font-size:13px;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:8px}
+h2.sec-title{font-size:clamp(21px,2.6vw,29px);color:var(--ink);line-height:1.35;font-weight:800}
+.sec-desc{margin-top:10px;color:var(--muted);font-size:15px}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:22px;transition:.2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(15,26,43,.35)}
+.card h3{font-size:17px;color:var(--ink);margin-bottom:8px;font-weight:700}
+.card p{font-size:14.5px;color:#4c5a6b}
+.tag{
+  display:inline-block;font-size:12px;font-weight:600;
+  color:var(--teal);background:rgba(47,143,134,.1);
+  border-radius:6px;padding:2px 9px;margin-bottom:12px;
+}
+.tag.warm{color:var(--accent);background:rgba(255,106,61,.1)}
+
+/* ride feature band */
+.band{background:var(--ink);color:#e7eef6}
+.band .sec-title{color:#fff}
+.band .sec-desc{color:#9fb0c3}
+.ride-list{display:grid;gap:0;margin-top:8px}
+.ride-item{
+  display:grid;grid-template-columns:64px 1fr;gap:18px;
+  padding:20px 0;border-top:1px solid rgba(255,255,255,.12);
+  align-items:start;
+}
+.ride-item:first-child{border-top:0}
+.ride-num{
+  font-size:22px;font-weight:800;color:var(--amber);
+  font-variant-numeric:tabular-nums;line-height:1.2;
+}
+.ride-item h3{font-size:16.5px;color:#fff;margin-bottom:5px}
+.ride-item p{font-size:14.5px;color:#a9b8c9}
+
+/* explore split */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+.panel{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:26px;
+}
+.panel h3{font-size:18px;color:var(--ink);margin-bottom:14px}
+.checklist{list-style:none;display:grid;gap:12px}
+.checklist li{display:flex;gap:11px;font-size:14.5px;color:#4c5a6b}
+.check{width:20px;height:20px;flex:none;margin-top:3px}
+
+/* filter */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;align-items:center;
+}
+.chip{
+  border:1px solid var(--line);background:#fff;color:#41505f;
+  font-size:13.5px;padding:6px 15px;border-radius:999px;cursor:pointer;
+  font-family:inherit;transition:.18s;
+}
+.chip:hover{border-color:var(--amber);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.search-box{display:flex;gap:8px;margin-left:auto}
+.search-box input{
+  font-family:inherit;font-size:14px;padding:7px 13px;border-radius:9px;
+  border:1px solid var(--line);background:#fff;color:var(--text);
+  width:180px;outline:none;
+}
+.search-box input:focus{border-color:var(--teal)}
+.note-empty{
+  display:none;padding:22px;text-align:center;color:var(--muted);
+  font-size:14.5px;border:1px dashed var(--line);border-radius:12px;background:#fff;
+}
+.note-empty.show{display:block}
+
+/* footer */
+footer{background:var(--ink);color:#9fb0c3;padding:40px 0 26px;margin-top:20px}
+.foot-top{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:15px}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+.foot-links a:hover{color:var(--amber)}
+.foot-bottom{padding-top:18px;font-size:13px;color:#7d8ea1;line-height:1.8}
+
+@media (max-width:900px){
+  .hero-grid,.split,.grid-3,.grid-2{grid-template-columns:1fr}
+  .hero{padding:40px 0 44px}
+  .hero-badge{order:-1}
+  section{padding:42px 0}
+  .search-box{margin-left:0;width:100%}
+  .search-box input{width:100%}
+  .ride-item{grid-template-columns:44px 1fr;gap:12px}
+  nav ul{gap:2px}
+  nav a{padding:5px 9px;font-size:13px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="每日大赛主题大赛骑乘 首页">
+      <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1d2c42"/>
+        <path d="M14 42c8-2 12-8 16-16 4 8 8 14 20 16" fill="none" stroke="#ffb84d" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="47" cy="20" r="5" fill="#ff6a3d"/>
+      </svg>
+      <span class="brand-text">每日大赛主题大赛骑乘</span>
+    </a>
+    <nav aria-label="主导航">
+      <ul>
+        <li><a href="#themes">主题看点</a></li>
+        <li><a href="#ride">骑乘专题</a></li>
+        <li><a href="#explore">浏览路径</a></li>
+        <li><a href="#daily">每日节奏</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">主题首页 · 骑乘专题</span>
+        <h1>每日大赛主题大赛骑乘</h1>
+        <p class="lead">每日大赛主题大赛骑乘围绕「每日大赛」这一主题节奏展开，把骑乘相关的主题内容集中到同一处浏览入口。这里按主题看点、骑乘专题与每日更新顺序组织内容，方便你从任意一栏进入，再顺着页面找到同一主题下的其他细节。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#ride">进入骑乘专题
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#themes">查看主题看点</a>
+          <a class="btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+        </div>
+      </div>
+      <aside class="hero-badge" aria-label="页面要点">
+        <h2>本页内容构成</h2>
+        <ul>
+          <li><span class="dot"></span><span>每日大赛的主题看点与骑乘方向</span></li>
+          <li><span class="dot"></span><span>骑乘专题的分层浏览顺序</span></li>
+          <li><span class="dot"></span><span>按关键词筛选主题条目的入口</span></li>
+          <li><span class="dot"></span><span>每日大赛主题大赛骑乘的更新节奏说明</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section id="themes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">主题看点</div>
+        <h2 class="sec-title">每日大赛主题大赛骑乘的三个观察角度</h2>
+        <p class="sec-desc">同一主题可以从不同方向切入。下面三栏各自承担一项信息任务：主题怎么定、骑乘怎么看、每日怎么跟。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">主题设定</span>
+          <h3>主题如何落到「每日」</h3>
+          <p>每日大赛强调逐日推进的主题节奏，主题不追求一次讲完，而是把内容切成可以按天跟进的小段。骑乘作为其中一个主题方向，被放在这条日更线上，形成连续的浏览序列。</p>
+        </article>
+        <article class="card">
+          <span class="tag warm">骑乘方向</span>
+          <h3>骑乘主题的内容重心</h3>
+          <p>骑乘主题关注动作、姿态与节奏三者的配合，属于典型的身体感知型内容。每日大赛主题大赛骑乘把这类内容单独成栏，是为了让读者不必在混杂条目里反复寻找同一方向的线索。</p>
+        </article>
+        <article class="card">
+          <span class="tag">阅读顺序</span>
+          <h3>先看专题，再回到每日</h3>
+          <p>第一次访问时，建议先看骑乘专题的整体分层，再回到每日节奏区对照当天条目。这样能先建立主题框架，再判断具体条目在框架中的位置，阅读成本更低。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIDE -->
+  <section id="ride" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">骑乘专题</div>
+        <h2 class="sec-title">每日大赛主题大赛骑乘的分层浏览</h2>
+        <p class="sec-desc">专题按由浅入深的顺序排列，每层只回答一个问题，避免在同一段里堆叠过多内容。</p>
+      </div>
+      <div class="ride-list">
+        <div class="ride-item">
+          <div class="ride-num">01</div>
+          <div>
+            <h3>先认识主题边界</h3>
+            <p>明确骑乘主题包含哪些内容、不包含哪些内容。边界清楚之后，后续条目是否属于该主题，判断会更直接，也减少在每日条目中反复确认的成本。</p>
+          </div>
+        </div>
+        <div class="ride-item">
+          <div class="ride-num">02</div>
+          <div>
+            <h3>再看动作与节奏</h3>
+            <p>骑乘类内容的核心在于动作与节奏的对应关系。专题把动作要点与节奏变化分开呈现，读者可以按自己的关注点选择一侧进入，而不是被迫从头读到尾。</p>
+          </div>
+        </div>
+        <div class="ride-item">
+          <div class="ride-num">03</div>
+          <div>
+            <h3>最后回到每日条目</h3>
+            <p>有了前两层认知，再查看当天的每日大赛条目，就能快速定位到骑乘相关部分。每日大赛主题大赛骑乘的价值也在这里体现：主题框架与日更条目互相印证。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE -->
+  <section id="explore">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">浏览路径</div>
+        <h2 class="sec-title">按关键词找到对应的主题条目</h2>
+        <p class="sec-desc">下方条目可用标签筛选，也可输入关键词检索标题与摘要。筛选只作用于本页已有条目，结果会实时显示。</p>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>访问前可以先确认的三件事</h3>
+          <ul class="checklist">
+            <li>
+              <svg class="check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="rgba(47,143,134,.14)"/><path d="M8 12.5l2.6 2.6L16 9.6" stroke="#2f8f86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>今天想跟的是整条每日大赛线，还是只看骑乘方向。</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="rgba(47,143,134,.14)"/><path d="M8 12.5l2.6 2.6L16 9.6" stroke="#2f8f86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>是否需要先看专题分层，再回到条目列表。</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="rgba(47,143,134,.14)"/><path d="M8 12.5l2.6 2.6L16 9.6" stroke="#2f8f86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>想找的是主题说明、骑乘要点，还是每日条目本身。</span>
+            </li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>主题条目</h3>
+          <div class="filter-bar">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="chip" type="button" data-filter="主题" aria-pressed="false">主题</button>
+            <button class="chip" type="button" data-filter="骑乘" aria-pressed="false">骑乘</button>
+            <button class="chip" type="button" data-filter="每日" aria-pressed="false">每日</button>
+            <div class="search-box">
+              <input type="search" id="kw" placeholder="输入关键词" aria-label="按关键词筛选条目">
+            </div>
+          </div>
+          <div class="grid-2" id="entry-list">
+            <article class="card" data-tags="主题 每日">
+              <span class="tag">主题</span>
+              <h3>主题线的起点</h3>
+              <p>每日大赛的主题线从设定开始，先讲清主题范围，再进入具体方向。这一条是后续所有骑乘内容的参照点。</p>
+            </article>
+            <article class="card" data-tags="骑乘 主题">
+              <span class="tag warm">骑乘</span>
+              <h3>骑乘主题的动作视角</h3>
+              <p>从动作视角看骑乘主题，重点是姿态与节奏的配合，而不是孤立地拆解单个动作。</p>
+            </article>
+            <article class="card" data-tags="每日 骑乘">
+              <span class="tag">每日</span>
+              <h3>日更条目的阅读位置</h3>
+              <p>每日条目在专题框架中有明确位置。先有框架，再读条目，判断会更快。</p>
+            </article>
+            <article class="card" data-tags="主题 骑乘">
+              <span class="tag warm">专题</span>
+              <h3>专题与条目的对应关系</h3>
+              <p>专题负责分层，条目负责具体。两者对应，才构成完整的每日大赛主题大赛骑乘浏览体验。</p>
+            </article>
+          </div>
+          <p class="note-empty" id="empty-tip">没有匹配的条目，换个关键词或点「全部」再看。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY -->
+  <section id="daily">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">每日节奏</div>
+        <h2 class="sec-title">每日大赛主题大赛骑乘如何按天跟进</h2>
+        <p class="sec-desc">日更不是把内容重复一遍，而是让同一主题在不同日期呈现不同侧面。下面说明跟进的常用顺序。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">当天</span>
+          <h3>先看当天主题条</h3>
+          <p>当天条目通常先给主题方向，再落到具体内容。先读这一条，可以快速判断今天是否包含骑乘相关内容。</p>
+        </article>
+        <article class="card">
+          <span class="tag">横向</span>
+          <h3>再对照专题分层</h3>
+          <p>把当天条目放回骑乘专题的分层中对照，能看出它属于主题边界、动作节奏还是条目回看哪一层，位置清楚后信息更容易留存。</p>
+        </article>
+        <article class="card">
+          <span class="tag">积累</span>
+          <h3>按周回看主题线</h3>
+          <p>单日条目信息有限，按周回看才能看出主题线的走向。每日大赛主题大赛骑乘的连续性，正是在这种回看中体现出来的。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1d2c42"/>
+          <path d="M14 42c8-2 12-8 16-16 4 8 8 14 20 16" fill="none" stroke="#ffb84d" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="47" cy="20" r="5" fill="#ff6a3d"/>
+        </svg>
+        <span>每日大赛主题大赛骑乘</span>
+      </div>
+      <div class="foot-links">
+        <a href="#themes">主题看点</a>
+        <a href="#ride">骑乘专题</a>
+        <a href="#explore">浏览路径</a>
+        <a href="#daily">每日节奏</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      每日大赛主题大赛骑乘是围绕每日大赛与骑乘主题组织的浏览首页，内容按主题看点、骑乘专题、条目筛选与每日节奏分区呈现。页面条目与筛选结果均来自本页静态内容，不含外部提交入口。
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#entry-list .card'));
+  var kw = document.getElementById('kw');
+  var emptyTip = document.getElementById('empty-tip');
+  var active = 'all';
+
+  function apply(){
+    var q = (kw.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(c){
+      var tags = c.getAttribute('data-tags') || '';
+      var text = (c.textContent || '').toLowerCase();
+      var okTag = (active === 'all') || tags.indexOf(active) > -1;
+      var okKw = !q || text.indexOf(q) > -1;
+      var show = okTag && okKw;
+      c.style.display = show ? '' : 'none';
+      if(show) shown++;
+    });
+    emptyTip.classList.toggle('show', shown === 0);
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      active = btn.getAttribute('data-filter');
+      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      apply();
+    });
+  });
+
+  kw.addEventListener('input', apply);
+})();
+</script>
+</body>
+</html>
